@@ -1,0 +1,72 @@
+SHRAWAN SUNAR
++977 (981) 3072663 ⋄ shrawansunar.6@gmail.com ⋄ Kathmandu, Nepal
+polymorphisma(github.com) ⋄ shrawansunar(LinkedIn) ⋄ shrawansunar.com.np ⋄ shrawan.xyz
+SKILLS SUMMARY
+Languages: Python, C, JAVA, JSON, JAVASCRIPT
+Frameworks: FastAPI, Flask, Django, Pandas, Numpy, Matplotlib
+Databases: PostgreSQL, MySQL, Microsoft SQL Server, Redis
+Web Development: HTML, CSS, Bootstrap, jQuery, Font Awesome
+Tools: Nginx, Linux, Git, Jira, Postman, Excel, Draw.io, Jupyter Notebook, VS Code
+Specializations: Data Science, Back-end, REST API, Unit testing
+Methodologies: Agile/Scrum
+EXPERIENCE
+Software Developer Intern - Navya Advisors Limited Kathmandu, Nepal
+Part-time - Onsite Jun 2022 - Dec 2022
+• Tech Stack: Python and PostgreSQL
+• Worked as a Software Developer Intern for 6 months to create sophisticated scrapers for collecting financial
+data for the FinTech startup company.
+• Collaborated closely with a Senior Data Scientist to efficiently parse, manipulate, and store the scraped
+financial data in a highly usable format.
+• Utilized industry standard tools and technologies to create, maintain and format reports.
+Software Developer Trainee - Navya Advisors Limited Kathmandu, Nepal
+Full-time - Onsite Dec 2022 - Dec 2023
+• Tech Stack: Python, PostgreSQL, Machine Learning, NLP, RESTful APIs
+• Worked as a Software Developer Trainee for 1 year, specializing in creating sophisticated scrapers for financial
+data in a FinTech startup.
+• Developed robust RESTful APIs for the in-house Mobile and Web applications.
+• Implemented advanced machine learning NLP models for sentiment analysis.
+• Engineered powerful scrapers capable of efficiently extracting data from multiple sources.
+• Designed and implemented database models to efficiently store and manage scraped financial data
+Managed database administration tasks, ensuring data integrity, security, and optimal performance.
+• Provided access to other developers by setting up and maintaining database user roles and permissions.
+• Parsed and processed the collected data in a highly useful manner and stored it in optimized formats.
+• Collaborated closely with team members, including a Senior Data Scientist, to ensure effective parsing, manipulation, and sentiment analysis of financial data.
+• Utilized industry-standard tools and technologies to create, maintain, and format reports.
+• Demonstrated excellent communication skills, presenting complex technical information clearly to both technical and non-technical stakeholders.
+Software Engineer - Mave Fund Cambridge, United Kingdom
+Contract - Remote Aug 2023 - Present
+• Tech Stack: FastAPI, PostgreSQL, Redis, Stock Analysis Algorithms, SP500, Web Scraping, Linux,
+Bash, GitHub
+• Worked as a Software Engineer for a Fintech startup founded by Cambridge graduates.
+• Developed and maintained APIs using FastAPI for efficient communication between various components.
+• Managed the database using PostgreSQL to ensure data integrity and optimal performance.
+• Utilized Redis for caching, enhancing the speed and responsiveness of the applications.
+• Implemented stock analysis algorithms as per the requirements of stakeholders.
+• Developed an in-house algorithmic trading system for SP500 companies.
+• Utilized web scrapers to gather data from various sources, ensuring a comprehensive and up-to-date dataset.
+• Implemented Linux cronjobs and Bash scripts for automations, streamlining routine tasks and improving
+efficiency.
+• Managed GitHub repositories, overseeing pull requests and conducting code reviews to maintain code
+quality.
+• Collaborated closely with stakeholders to understand and implement stock analysis algorithms effectively.
+• Contributed to the development and enhancement of financial systems and tools.
+PROJECTS
+All projects can be found in my github repository
+1. Nepse-Scraper (Web Scraping, Python Module) (link):
+Developed a Python module for web scraping, similar to yfinance, to retrieve real-time financial data for Nepal Stock
+companies listed on Nepse (Nepal Stock Exchange).
+• Designed and Implemented a Python module for web scraping, extracting real-time financial data of Nepal
+Stock companies.
+• Utilized industry-standard scraping techniques to gather data from the Nepse website and other relevant
+sources.
+• Published the Python module on GitHub, making it open-source and accessible to the community. (link)
+• Published the module on PyPI, enhancing its availability and ease of installation for the Python community.
+(link)
+• Ensured code quality through thorough testing and documentation, allowing for easy adoption and collaboration.
+• Contributed to the financial data ecosystem by providing a Python module for accessing Nepal Stock company
+information programmatically.
+• Gained expertise in Python module development, web scraping techniques, data extraction, and package
+distribution through PyPI.
+EDUCATION
+Infrastructure University Kuala Lumpur, Sunway College Kathmandu, Nepal
+Bachelor in Computer Science and Information Technology Expected 2025
