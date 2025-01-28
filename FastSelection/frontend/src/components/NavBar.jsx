@@ -13,7 +13,7 @@ export default function NavBar() {
 
   return (
     <div className="flex justify-center items-center fixed w-full">
-      <div className="m-2 flex gap-6 px-10 py-4 items-center bg-gray-100 h-fit w-fit rounded-full shadow-md text-lg text-gray-500 cursor-pointer">
+      <div className="m-2 flex sm:gap-6 gap-3 p-4 sm:px-10 sm:py-4 items-center bg-gray-100 h-fit w-fit rounded-full shadow-md sm:text-lg text-gray-500 cursor-pointer">
         <Link to={"/"}>
           <AiFillHome
             className={`${
