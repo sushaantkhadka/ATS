@@ -4,6 +4,7 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Profile from "./pages/Profile";
 import NavBar from "./components/NavBar";
+import { Toaster } from "react-hot-toast";
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
+      <Toaster />
     </BrowserRouter>
   );
 }
