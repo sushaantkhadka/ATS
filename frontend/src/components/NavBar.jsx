@@ -56,7 +56,7 @@ export default function NavBar() {
           />
         </Link>
 
-        <Link to={"/sign-in"}>
+        <Link to={"/log-in"}>
           <FaSignInAlt
             className={`${
               currentPage.pathname === "/sign-in" && "/sign-up"
