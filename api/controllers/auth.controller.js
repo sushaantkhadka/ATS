@@ -2,7 +2,7 @@ import User from "../models/user.model.js";
 import bcryptjs from "bcryptjs";
 import { errorHandler } from "../utils/error.js";
 import generateToken from "../utils/generateToken.js";
-
+import jwt from "jsonwebtoken";
 
 export const signUp = async (req, res, next) => {
   try {
@@ -46,15 +46,21 @@ export const login = async (req, res, next) => {
   try {
     const { username, password } = req.body;
     const validUser = await User.findOne({ username });
+
+    if (!validUser) {
+      return next(errorHandler(404, "Username doesnot exist"));
+    }
+
     const validPassword = bcryptjs.compareSync(password, validUser.password);
 
-    if (!validUser || !validPassword)
+    if (!validPassword) {
       return next(errorHandler(404, "Username or password is incorrect"));
+    }
 
+    const { password: hashedPassword, ...rest } = validUser._doc;
     
-    // const { password: hashedPassword, ...rest } = validUser._doc;
     generateToken(validUser._id, res)
-    
+    res.status(200).json(rest);
   } catch (error) {
     next(error);
   }
