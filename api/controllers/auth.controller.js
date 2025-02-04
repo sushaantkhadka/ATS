@@ -46,19 +46,14 @@ export const login = async (req, res, next) => {
   try {
     const { username, password } = req.body;
     const validUser = await User.findOne({ username });
+    const validPassword = bcryptjs.compareSync(password, validUser?.password || "");
 
-    if (!validUser) {
-      return next(errorHandler(404, "Username doesnot exist"));
-    }
-
-    const validPassword = bcryptjs.compareSync(password, validUser.password);
-
-    if (!validPassword) {
+    if (!validUser || !validPassword) {
       return next(errorHandler(404, "Username or password is incorrect"));
     }
 
     const { password: hashedPassword, ...rest } = validUser._doc;
-    
+
     generateToken(validUser._id, res)
     res.status(200).json(rest);
   } catch (error) {
