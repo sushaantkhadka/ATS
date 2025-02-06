@@ -1,8 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const useSignup = () => {
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
 
   const signup = async ({ username, email, password, confirmPassword }) => {
     const success = _handleInputError({
@@ -33,6 +36,9 @@ const useSignup = () => {
       if (data.error) {
         throw new Error(data.error);
       }
+      navigate('/log-in')
+      toast.success("Account Created Successfully")
+
     } catch (error) {
       toast.error(error.message);
     } finally {

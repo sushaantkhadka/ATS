@@ -59,7 +59,7 @@ export default function NavBar() {
         <Link to={"/log-in"}>
           <FaSignInAlt
             className={`${
-              currentPage.pathname === "/sign-in" && "/sign-up"
+              currentPage.pathname === "/log-in" || currentPage.pathname === "/sign-up"
                 ? "text-amber-500"
                 : ""
             }`}
