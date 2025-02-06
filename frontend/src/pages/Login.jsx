@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { FaGoogle } from "react-icons/fa6";
 import useLogin from "../hooks/useLogin";
 import { useState } from "react";
+import OAuth from "../components/OAuth/OAuth";
 
 export default function Login() {
   const [formData, setFormData] = useState({});
@@ -45,10 +45,7 @@ export default function Login() {
           </button>
         </form>
 
-        <button className="my-2 text-white bg-red-600 py-1 w-full rounded-lg flex justify-center items-center gap-2">
-          <FaGoogle />
-          Sign Up with Google
-        </button>
+        <OAuth />
 
         <div className="flex gap-2 text-gray-500 justify-center">
           <p>Don&apos;t have an account?</p>

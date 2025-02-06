@@ -2,12 +2,12 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
-
 const useLogin = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const login = async ({ username, password }) => {
     try {
+      setLoading(true)
       const res = await fetch("/api/auth/login", {
         method: "POST",
         headers: {
@@ -19,15 +19,18 @@ const useLogin = () => {
         }),
       });
       const data = await res.json();
-      if (data.error) {
-        throw new Error(data.error);
-      }
-      navigate('/')
-      toast.success('Successfully logged in')
+      console.log(data.message);
 
+      if (data.success == false) {
+        toast.error(data.message);
+        setLoading(false);
+        throw new Error(data);
+      }
+      navigate("/");
+      toast.success("Successfully logged in");
     } catch (error) {
       toast.error(error.message);
-    } finally {
+    }finally{
       setLoading(false);
     }
   };
