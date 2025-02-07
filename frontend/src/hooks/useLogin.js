@@ -1,10 +1,12 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../context/AuthContext";
 
 const useLogin = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { setAuthUser } = useAuthContext();
   const login = async ({ username, password }) => {
     try {
       setLoading(true)
@@ -28,6 +30,11 @@ const useLogin = () => {
       }
       navigate("/");
       toast.success("Successfully logged in");
+
+      localStorage.setItem("login-user", JSON.stringify(data));
+      setAuthUser(data);
+
+
     } catch (error) {
       toast.error(error.message);
     }finally{

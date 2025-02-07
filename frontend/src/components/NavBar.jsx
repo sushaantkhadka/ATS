@@ -4,18 +4,20 @@ import {
   AiFillHome,
   AiFillStar,
 } from "react-icons/ai";
-import { FaCircleUser } from "react-icons/fa6";
 import { FaSignInAlt } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
+import { useAuthContext } from "../context/AuthContext";
 
 export default function NavBar() {
+  const {authUser} = useAuthContext();
   const currentPage = useLocation();
+  
 
   return (
     <div className="flex justify-center items-center fixed w-full">
       <div className="m-2 flex sm:gap-6 gap-3 p-4 sm:px-10 sm:py-4 items-center bg-gray-100 h-fit w-fit rounded-full shadow-md sm:text-lg text-gray-500 cursor-pointer">
         <Link to={"/"}>
-          <AiFillHome
+          <AiFillHome title="Home"
             className={`${
               currentPage.pathname === "/" ? "text-amber-500" : ""
             }`}
@@ -48,13 +50,9 @@ export default function NavBar() {
 
         <p>|</p>
 
-        <Link to={"/profile"}>
-          <FaCircleUser
-            className={`${
-              currentPage.pathname === "/profile" ? "text-amber-500" : ""
-            }`}
-          />
-        </Link>
+        {authUser? (<Link to={"/profile"}>
+          <img src={authUser.profileImage} alt="profile" className="h-5 w-5 rounded-full object-cover"/>
+        </Link>) : null}
 
         <Link to={"/log-in"}>
           <FaSignInAlt

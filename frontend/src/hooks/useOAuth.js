@@ -2,9 +2,11 @@ import toast from 'react-hot-toast'
 import { GoogleAuthProvider, signInWithPopup, getAuth } from 'firebase/auth'
 import { app } from "../firebase";
 import { useNavigate } from 'react-router-dom';
+import { useAuthContext } from '../context/AuthContext';
 
 const useOAuth = () => {
     const navigate = useNavigate();
+    const {setAuthUser} = useAuthContext();
     const oauth = async() => {
         try{
             const provider = new GoogleAuthProvider()
@@ -24,6 +26,9 @@ const useOAuth = () => {
             })
             const data = await res.json();
             console.log(data);
+
+            localStorage.setItem("login-user", JSON.stringify(data)),
+            setAuthUser(data);
             
             navigate('/')
             toast.success("Successfully Logged In")

@@ -1,0 +1,22 @@
+import { createContext, useContext, useState } from "react";
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const AuthContext = createContext();
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const useAuthContext = () => {
+    return useContext(AuthContext);
+}
+
+// eslint-disable-next-line react/prop-types
+export const AuthContextProvider = ({ children }) => {
+    const [authUser,SetAuthUser] = useState(
+        JSON.parse(localStorage.getItem("login-user")) || null
+    );
+
+    return (
+        <AuthContext.Provider value={{ authUser, SetAuthUser }}>
+            {children}
+        </AuthContext.Provider>
+    )
+}
