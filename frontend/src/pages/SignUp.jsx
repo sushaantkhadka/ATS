@@ -17,8 +17,7 @@ export default function SignUp() {
   };
 
   return (
-    <div className="flex justify-center items-center h-[100vh]">
-      <div className="bg-gray-100 p-5 rounded-2xl border-gray-500 border-1 shadow-xl w-[420px] ">
+      <div className="bg-gray-100 p-5 my-40 rounded-2xl border-gray-500 border-1 shadow-xl max-w-md mx-auto ">
         <div className="mb-6 text-center">
           <h1 className="text-2xl font-bold">Sign up</h1>
           <p className="text-gray-500">Sign up to gain access</p>
@@ -67,6 +66,5 @@ export default function SignUp() {
           </Link>
         </div>
       </div>
-    </div>
   );
 }
