@@ -61,7 +61,8 @@ export const login = async (req, res, next) => {
 };
 
 export const google = async(req, res, next) => {
-  const user = await User.findOne({email: req.body.email})
+  try{
+    const user = await User.findOne({email: req.body.email})
   if(user) {
   const {password: hashedPassword, ...rest} = user._doc;
   generateToken(user._id, res)
@@ -82,4 +83,20 @@ export const google = async(req, res, next) => {
     generateToken(newUser._id, res)
     res.status(200).json(rest);
   }
+  } catch (error){
+    res.status(500).json(error)
+  }
 }
+
+export const logout = (req, res) => {
+  try {
+    res.cookie("jwt","", {maxAge:0})
+    res.status(200).json({message: "Logged out sucessfully"})
+    
+  } catch (error) {
+    console.log("Error in loggout controller", error.message);
+    res.status(500).json({
+      error: `Internal Server Error: ${error}`,
+    });
+  }
+};

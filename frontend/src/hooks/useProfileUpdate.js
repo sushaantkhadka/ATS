@@ -1,13 +1,15 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
+import { useAuthContext } from "../context/AuthContext";
 
 const useProfileUpdate = () => {
   const [loading, setLoading] = useState(false);
+  const {authUser, setAuthUser} = useAuthContext();
 
-  const updateProfile = async ({ username, email, password }) => {
+  const updateProfile = async ({ username, email, password, profileImage }) => {
     try {
       setLoading(true);
-      const res = await fetch("/api/", {
+      const res = await fetch(`/api/user/update/${authUser._id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -16,17 +18,22 @@ const useProfileUpdate = () => {
           username,
           email,
           password,
+          profileImage
         }),
       });
       const data = await res.json();
-      console.log(data.message);
+      
 
       if (data.success == false) {
         toast.error(data.message);
         setLoading(false);
         throw new Error(data);
       }
-      toast.success("Successfully logged in");
+
+      toast.success("Profile Updated Successfully");
+      localStorage.setItem("login-user", JSON.stringify(data));
+      setAuthUser(data);
+
     } catch (error) {
       toast.error("Something went wrong.");
     } finally {

@@ -16,8 +16,8 @@ export default function App() {
       
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/log-in" element={<Login />} />
-        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/log-in" element={authUser? <Navigate to={'/profile'}/> : <Login /> } />
+        <Route path="/sign-up" element={authUser? <Navigate to={'/profile'}/> : <SignUp />} />
         <Route path="/profile" element={authUser? <Profile /> :  <Navigate to={'/'}/>} />
       </Routes>
       <Toaster />
