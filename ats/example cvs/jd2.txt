@@ -1,0 +1,49 @@
+Job Summary: We are seeking a highly skilled and motivated Data Scientist to join our team. In this role, you will leverage data analytics, machine learning, and statistical modeling to extract insights, drive business decisions, and develop predictive models. You will collaborate with cross-functional teams to solve complex problems and optimize processes through data-driven strategies.
+
+Key Responsibilities:
+
+Collect, clean, and analyze large datasets to extract meaningful insights.
+
+Develop and implement machine learning models and algorithms to solve business problems.
+
+Utilize statistical techniques and predictive modeling to drive strategic decision-making.
+
+Work closely with engineering and business teams to integrate data-driven solutions into products and processes.
+
+Create data visualizations and dashboards to communicate findings to stakeholders.
+
+Continuously monitor and improve the performance of models and analytics solutions.
+
+Stay updated with the latest advancements in data science, machine learning, and AI.
+
+Ensure data integrity, security, and compliance with regulatory requirements.
+
+Qualifications & Skills:
+
+Bachelor's or Master’s degree in Data Science, Computer Science, Statistics, Mathematics, or a related field.
+
+Proven experience in data science, machine learning, and statistical analysis.
+
+Proficiency in programming languages such as Python, R, or SQL.
+
+Experience with data visualization tools like Tableau, Power BI, or Matplotlib.
+
+Familiarity with machine learning frameworks (TensorFlow, Scikit-learn, PyTorch, etc.).
+
+Strong analytical and problem-solving skills.
+
+Excellent communication and collaboration skills.
+
+Experience with cloud platforms (AWS, GCP, Azure) is a plus.
+
+Benefits:
+
+Competitive salary and performance bonuses.
+
+Flexible work arrangements, including remote options.
+
+Professional development opportunities.
+
+Health, dental, and vision insurance.
+
+Paid time off and company-sponsored events.

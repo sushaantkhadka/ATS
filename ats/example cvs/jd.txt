@@ -1,0 +1,60 @@
+About the job
+About Us: 
+
+F1Soft Group is a leading technology company dedicated to transforming the financial services landscape through innovative digital solutions, simplifying the lives of millions of people. With businesses in various verticals like mobile financial services, eHealth, EduTech, InsureTech and eCommerce, we are dedicated to digital transformation and ecosystem development. 
+
+
+
+Company Background: 
+
+eXtensoData is a predictive and prescriptive analytics company that equips clients with the tools required to leverage the power of data to generate actionable insights to unleash the hidden X factor in their business by optimizing business processes, predicting future outcomes, and identifying new opportunities. 
+
+
+
+Job Overview: 
+
+The main goal of QA engineers at eXtensoData is to prevent defects. Quality Control specialists, in their turn, analyze the test results and find mistakes. They are responsible for identifying and eliminating defects in a product (or, in other words, these engineers make sure that developers get the results they expect).
+
+ 
+
+Key Responsibilities: 
+
+Understanding business requirement & usecases
+Test Plan and test cases , test script preparation and execution
+Recurring tasks automation
+Capabilities of data verification and Data Validation
+Well acquainted with SDLC
+Team collaboration & co-ordination with both cross functional team and within team
+
+
+Essential Requirements: 
+
+Bachelor's Degree in Computer Science or B.E. in Computer Engineering or related field. 
+Two or more years of expertise in quality assurance and team mentorship.
+ 
+
+Key Skills/ Knowledge: 
+
+Advance knowledge in SQL scripting in Stored Procedure
+Mentorship skill and knowledge sharing skill
+Knowledge of fintech term and terminologies
+Knowledge of data analyst tools and technologies ( eg: python , R, Spark)
+Knowledge of QA framework automation ( Eg: robot framework , Jmeter)
+Solid knowledge of SQL, Procedural, Shell and Python scripting
+Good exposure to data ingestion, ETL/ELT process, data validation and testing
+Ability to work under tight time constraints with dynamic requirements
+Experience in automation test frameworks: Robert farmwork, Postman, selenium and others
+Be excited about automation and building tools to help do your job and assist the rest of the team
+Knowledge of quality assurance terminology, methods, and tools
+Knowledge of Project management and Bug tracking tools like Jira
+Strong analytical skills and the ability to pay careful attention to detail
+Knowledge of version control tool: GitHub, GitLab
+Experience with performance and/or security testing is a plus
+
+
+Why Join Us?
+
+Stellar opportunity to work with the rising company
+An amazing and passionate young team with vibrant office space
+Trust of biggest FinTech company
+One-of-a-kind company culture and growth opportunities to accelerate your career progression
