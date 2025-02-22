@@ -1,0 +1,79 @@
+Sushant Khadka123 Data Street, Kathmandu, Nepal | sushant.khadka@email.com | +977 9800000000 | linkedin.com/in/sushantkhadka | github.com/sushantkhadka
+
+Professional Summary
+
+Data Scientist with over 5 years of experience in machine learning, statistical analysis, and data visualization. Skilled in developing predictive models, optimizing data-driven solutions, and collaborating with cross-functional teams. Proficient in Python, R, SQL, and various data visualization tools. Passionate about leveraging data to drive strategic decision-making and business success.
+
+Technical Skills
+
+Programming: Python, R, SQL
+
+Machine Learning: TensorFlow, Scikit-learn, PyTorch
+
+Data Visualization: Tableau, Power BI, Matplotlib, Seaborn
+
+Big Data & Cloud: AWS, GCP, Azure, Spark
+
+Databases: MySQL, PostgreSQL, MongoDB
+
+Other Tools: Git, Jupyter Notebook, Hadoop
+
+Work Experience
+
+Data ScientistTech Analytics Pvt. Ltd. | Kathmandu, Nepal | 2020 – Present
+
+Developed and deployed machine learning models to optimize business processes, leading to a 20% increase in efficiency.
+
+Conducted statistical analysis and A/B testing to improve decision-making strategies.
+
+Created dashboards using Tableau and Power BI to visualize key performance metrics for stakeholders.
+
+Worked with engineering and business teams to integrate predictive analytics into company products.
+
+Ensured data integrity and compliance with industry regulations.
+
+Data AnalystInsight Solutions | Lalitpur, Nepal | 2017 – 2020
+
+Cleaned, processed, and analyzed large datasets to extract actionable insights.
+
+Built SQL queries and automated reports to support data-driven decisions.
+
+Conducted exploratory data analysis to identify trends and business opportunities.
+
+Education
+
+Master’s Degree in Data ScienceTribhuvan University, Nepal | 2019
+
+Bachelor’s Degree in Computer ScienceKathmandu University, Nepal | 2016
+
+Certifications
+
+Certified Machine Learning Professional – Coursera
+
+Data Science Specialization – edX
+
+AWS Certified Data Analytics – Amazon Web Services
+
+Projects
+
+Predictive Sales Model: Developed a machine learning model to predict sales trends, improving revenue forecasting accuracy.
+
+Customer Segmentation: Used clustering techniques to segment customers and improve targeted marketing efforts.
+
+Fraud Detection System: Built a real-time fraud detection system using anomaly detection algorithms.
+
+Soft Skills
+
+Problem-Solving
+
+Communication & Collaboration
+
+Critical Thinking
+
+Adaptability
+
+Languages
+
+English (Fluent)
+
+Nepali (Native)
