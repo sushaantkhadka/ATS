@@ -20,17 +20,27 @@ export const createListing = async (req, res, next) => {
   }
 };
 
+<<<<<<< HEAD
 export const uploadResume = async (req, res, next) => {
   try {
     const { name, exp, uploads, rating } = req.body;
     const { id: listingId } = req.params;
     const listing = await Listing.findById(listingId);
     
+=======
+export  const uploadResume = async (req, res, next) => {
+  try{
+    const { name, exp, uploads} = req.body;
+    const {id: listingId} = req.params;
+    const listing = await Listing.findById(listingId);
+    const rating = 5
+>>>>>>> 81c6a2dc02689b7a84955117650cbffbbb0c6bd4
 
     const newResume = new Applicant({
       name,
       exp,
       uploads,
+<<<<<<< HEAD
       rating,
     });
 
@@ -53,6 +63,17 @@ export const getApplicant = async (req, res) => {
     res.status(201).json(listing.applicant)
     
   }catch (error){
+=======
+      rating
+    })
+
+    if(newResume) {
+      listing.applicant.push(newResume._id)
+      await newResume.save();
+    }
+    res.status(201).json({message: "Resume uploaded successfully", rating})
+  } catch{
+>>>>>>> 81c6a2dc02689b7a84955117650cbffbbb0c6bd4
     next(error)
   }
 }
