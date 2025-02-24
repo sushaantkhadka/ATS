@@ -1,5 +1,7 @@
 import Applicant from "../models/applicant.model.js";
 import Listing from "../models/listing.model.js";
+import axios from "axios";
+import { getDocument } from "pdfjs-dist/legacy/build/pdf.mjs";
 
 export const createListing = async (req, res, next) => {
   try {
@@ -57,21 +59,28 @@ export const getApplicant = async (req, res) => {
 
 export const testPdfParse = async (req, res, next) => {
   try {
-    // const resume = await fetch("https://api.arya.ai/images/test.pdf", {
-    //   method: "GET",
-    //   headers: {
-    //     Accept: "application/pdf",
-    //   },
-    // });
+    const pdfUrl = "https://ucarecdn.com/943daeed-7c1e-4ecc-9794-1017443db547/";
+    const response = await axios.get(pdfUrl, { responseType: "arraybuffer" });
 
-    // const pdfBuffer = await resume.arrayBuffer(); // Get the PDF data
-    // console.log(pdfBuffer);
+    const pdfData = new Uint8Array(response.data);
+
+    const loadingTask = getDocument({ data: pdfData });
+    const pdfDoc = await loadingTask.promise;
     
+    let extractedText = "";
 
+    for (let i = 1; i <= pdfDoc.numPages; i++) {
+      const page = await pdfDoc.getPage(i);
+      const textContent = await page.getTextContent();
+      extractedText += textContent.items.map(item => item.str).join(" ") + "\n";
+    }
 
-  } catch(error) {
+    console.log("Extracted Text:", extractedText);
+    res.status(200).json({ text: extractedText });
+
+  } catch (error) {
     console.log(error);
-    
+
     next(error);
   }
 };

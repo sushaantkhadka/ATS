@@ -6,6 +6,10 @@ import nltk
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 
+from pdfminer.high_level import extract_text
+import requests
+
+
 
 nltk.download('punkt')
 nltk.download('stopwords')
@@ -25,6 +29,16 @@ def clean_text(txt):
     return clean_text.strip()
 
 app = Flask(__name__)
+
+@app.route("/pdf", methods=['POST'])
+def pdf():
+    data = request.json
+    resume = data["url"]
+    req = requests.get(resume)
+    # text = extract_text(resume)
+    print(req)
+    return
+
 
 @app.route("/compare", methods=['POST'])
 def main():
