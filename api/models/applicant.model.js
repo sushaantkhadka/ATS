@@ -2,10 +2,6 @@ import mongoose from "mongoose";
 
 const applicant = new mongoose.Schema(
   {
-    listingId:{
-      type:String,
-      required: true,
-    },
     name: {
       type: String,
       required: true,
