@@ -72,7 +72,10 @@ def main():
         }
         
         category_name = category_mapping.get(prediction, "Unknown")
-    return [category_name, match_percentage]
+    return jsonify({
+        "category": category_mapping,
+        "rating" : match_percentage
+    })
     
 
 if __name__ == "__main__":

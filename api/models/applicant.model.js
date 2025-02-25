@@ -2,10 +2,6 @@ import mongoose from "mongoose";
 
 const applicant = new mongoose.Schema(
   {
-    listingId:{
-      type:String,
-      required: true,
-    },
     name: {
       type: String,
       required: true,
@@ -14,7 +10,7 @@ const applicant = new mongoose.Schema(
       type: String,
       required: true,
     },
-    uploads: {
+    pdfUrl: {
       type: String,
       required: true,
     },

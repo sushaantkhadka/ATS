@@ -24,14 +24,42 @@ export const createListing = async (req, res, next) => {
 
 export const uploadResume = async (req, res, next) => {
   try {
-    const { name, exp, uploads, rating } = req.body;
+    const { name, exp, pdfUrl, rating } = req.body;
     const { id: listingId } = req.params;
     const listing = await Listing.findById(listingId);
+    console.log(listing);
+    
 
+
+    // parse pdf 
+    const response = await axios.get(pdfUrl, { responseType: "arraybuffer" });
+    const pdfData = new Uint8Array(response.data);
+
+    const loadingTask = getDocument({ data: pdfData });
+    const pdfDoc = await loadingTask.promise;
+    
+    let extractedText = "";
+
+    for (let i = 1; i <= pdfDoc.numPages; i++) {
+      const page = await pdfDoc.getPage(i);
+      const textContent = await page.getTextContent();
+      extractedText += textContent.items.map(item => item.str).join(" ") + "\n";
+    }
+
+    console.log(extractedText);
+    
+
+    // const compare = await axios.post("http://127.0.0.1:5000", {jd: listing.desc, resume: extractedText})
+
+    // console.log(compare);
+    
+
+
+    // save applicant da ta to database 
     const newResume = new Applicant({
       name,
       exp,
-      uploads,
+      pdfUrl,
       rating,
     });
 
