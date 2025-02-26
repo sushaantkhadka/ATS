@@ -2,36 +2,35 @@ import mongoose from "mongoose";
 
 const listing = new mongoose.Schema(
   {
-    userId:
-      {
-        type: String,
-        required: true,
-      },
-    title:
-      {
-        type: String,
-        required: true,
-      },
-    desc:
-      {
-        type: String,
-        required: true,
-      },
-    companyName:
-      {
-        type: String,
-        required: true,
-      },
-    jobType:
-      {
-        type: String,
-        required: true,
-      },
-    location:
-      {
-        type: String,
-        required: true,
-      },
+    userId: {
+      type: String,
+      required: true,
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+    desc: {
+      type: String,
+      required: true,
+    },
+    companyName: {
+      type: String,
+      required: true,
+    },
+    jobType: {
+      type: String,
+      required: true,
+    },
+    location: {
+      type: String,
+      required: true,
+    },
+    category: { type: String },
+    status: {
+      type: Boolean,
+      default: true
+    },
     applicant: [
       {
         type: mongoose.Schema.Types.ObjectId,

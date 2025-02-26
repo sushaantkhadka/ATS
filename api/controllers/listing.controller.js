@@ -5,12 +5,13 @@ import { getDocument } from "pdfjs-dist/legacy/build/pdf.mjs";
 
 export const createListing = async (req, res, next) => {
   try {
-    const { title, desc, jobType, companyName, location, userId } = req.body;
+    const { title, desc, jobType, category, companyName, location, userId } = req.body;
 
     const newListing = new Listing({
       title,
       desc,
       jobType,
+      category,
       companyName,
       location,
       userId,

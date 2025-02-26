@@ -6,7 +6,7 @@ import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import SignUp from "./pages/SignUp";
 import { useAuthContext } from "./context/AuthContext";
-import Jobs from "./pages/Jobs";
+import Jobs from "./pages/jobs/Jobs";
 
 export default function App() {
   const {authUser} = useAuthContext();
