@@ -24,12 +24,9 @@ export const createListing = async (req, res, next) => {
 
 export const uploadResume = async (req, res, next) => {
   try {
-    const { name, exp, pdfUrl, rating } = req.body;
+    const { name, exp, pdfUrl } = req.body;
     const { id: listingId } = req.params;
     const listing = await Listing.findById(listingId);
-    console.log(listing);
-    
-
 
     // parse pdf 
     const response = await axios.get(pdfUrl, { responseType: "arraybuffer" });
@@ -44,14 +41,9 @@ export const uploadResume = async (req, res, next) => {
       const page = await pdfDoc.getPage(i);
       const textContent = await page.getTextContent();
       extractedText += textContent.items.map(item => item.str).join(" ") + "\n";
-    }
+    }    
 
-    console.log(extractedText);
-    
-
-    // const compare = await axios.post("http://127.0.0.1:5000", {jd: listing.desc, resume: extractedText})
-
-    // console.log(compare);
+    const compare = await axios.post("http://127.0.0.1:5000/compare", {jd: listing.desc, resume: extractedText})
     
 
 
@@ -60,7 +52,8 @@ export const uploadResume = async (req, res, next) => {
       name,
       exp,
       pdfUrl,
-      rating,
+      rating: compare.data.rating,
+      resumeType: compare.data.category
     });
 
     if (newResume) {
@@ -73,7 +66,7 @@ export const uploadResume = async (req, res, next) => {
   }
 };
 
-export const getApplicant = async (req, res) => {
+export const getApplicant = async (req, res, next) => {
   try {
     const { id: jobId } = req.params;
 
@@ -85,30 +78,12 @@ export const getApplicant = async (req, res) => {
   }
 };
 
-export const testPdfParse = async (req, res, next) => {
+export const getJobs = async (req, res, next) => {
   try {
-    const pdfUrl = "https://ucarecdn.com/943daeed-7c1e-4ecc-9794-1017443db547/";
-    const response = await axios.get(pdfUrl, { responseType: "arraybuffer" });
-
-    const pdfData = new Uint8Array(response.data);
-
-    const loadingTask = getDocument({ data: pdfData });
-    const pdfDoc = await loadingTask.promise;
-    
-    let extractedText = "";
-
-    for (let i = 1; i <= pdfDoc.numPages; i++) {
-      const page = await pdfDoc.getPage(i);
-      const textContent = await page.getTextContent();
-      extractedText += textContent.items.map(item => item.str).join(" ") + "\n";
-    }
-
-    console.log("Extracted Text:", extractedText);
-    res.status(200).json({ text: extractedText });
-
+     const listing = await Listing.find().select("-applicant")
+     res.status(201).json(listing)
   } catch (error) {
-    console.log(error);
-
-    next(error);
+    next(error)
   }
-};
+}
+

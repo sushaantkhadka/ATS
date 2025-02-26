@@ -73,7 +73,7 @@ def main():
         
         category_name = category_mapping.get(prediction, "Unknown")
     return jsonify({
-        "category": category_mapping,
+        "category": category_name,
         "rating" : match_percentage
     })
     

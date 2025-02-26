@@ -9,7 +9,6 @@ import useUserDelete from "../hooks/useUserDelete";
 
 export default function Profile() {
   const { authUser } = useAuthContext();
-  const [fileData, setFileData] = useState(undefined);
   const [uploadStat, setUploadStat] = useState(false);
   const [formData, setFormData] = useState({});
   const { updateProfile, loading } = useProfileUpdate();
@@ -36,18 +35,22 @@ export default function Profile() {
   const handleUpload = async (e) => {
     try {
       setUploadStat(true);
-      setFileData(e.target.files[0]);
-      const result = await uploadFile(fileData, {
-        publicKey: import.meta.env.VITE_UPLOAD_CARE_API_KEY,
-        store: "auto",
-        metadata: {
-          subsystem: "js-client",
-          pet: "cat",
-        },
-      });
-
-      toast.success("Image Successfully uploaded");
-      setFormData({ ...formData, profileImage: result.cdnUrl });
+      const fileData = e.target.files[0];
+      if (fileData) {
+        const result = await uploadFile(fileData, {
+          publicKey: import.meta.env.VITE_UPLOAD_CARE_API_KEY,
+          store: "auto",
+          metadata: {
+            subsystem: "js-client",
+            pet: "cat",
+          },
+        });
+        setFormData({ ...formData, profileImage: result.cdnUrl });
+        toast.success("Image Successfully uploaded");
+      } else {
+        toast.error("Unable to upload file. Please try again!")
+      }
+      
     } catch (error) {
       toast.error("Error uploading image");
     } finally {

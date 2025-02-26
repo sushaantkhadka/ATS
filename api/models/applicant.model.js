@@ -17,6 +17,10 @@ const applicant = new mongoose.Schema(
     rating: {
       type : String,
       required: true,
+    },
+    resumeType: {
+      type : String,
+      require: true,
     }
   },
   { timestamps: true }
