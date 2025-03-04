@@ -19,8 +19,8 @@ export default function Home() {
                 </p>
               </div>
               <div className="space-x-4">
-               <Link to={"/log-in"}><Button>Get Started</Button></Link>
-                <Link to={"/pricing"}><Button variant="outline">Learn More</Button></Link>
+               <Link to={"/sign-up"}><Button>Get Started</Button></Link>
+                <Link to={"/jobs"}><Button variant="outline">Find Jobs</Button></Link>
               </div>
             </div>
           </div>

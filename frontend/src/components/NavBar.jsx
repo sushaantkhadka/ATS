@@ -19,14 +19,25 @@ export default function NavBar() {
   return (
     <div className="flex justify-center items-center fixed w-full">
       <div className="m-2 flex sm:gap-6 gap-3 p-4 sm:px-10 sm:py-4 items-center bg-gray-100 h-fit w-fit rounded-full shadow-md sm:text-lg text-gray-500 cursor-pointer">
-        <Link to={"/"}>
+      {authUser? null : (<Link to={"/"}>
           <AiFillHome
             title="Home"
             className={`${
               currentPage.pathname === "/" ? "text-amber-500" : ""
             }`}
           />
-        </Link>
+        </Link>)}
+
+        {authUser ? (
+          <Link to={"/dashboard"}>
+            <IoAnalyticsSharp
+              title="dashboard"
+              className={`${
+                currentPage.pathname === "/analytics" ? "text-amber-500" : ""
+              }`}
+            />
+          </Link>
+        ) : null}
 
         <Link to={"/jobs"}>
           <FaBriefcase
@@ -47,17 +58,6 @@ export default function NavBar() {
             />
           </Link>
         )}
-
-        {authUser ? (
-          <Link to={"/analytics"}>
-            <IoAnalyticsSharp
-              title="pricing"
-              className={`${
-                currentPage.pathname === "/analytics" ? "text-amber-500" : ""
-              }`}
-            />
-          </Link>
-        ) : null}
 
         <p>|</p>
 

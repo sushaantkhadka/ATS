@@ -1,70 +1,90 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import useSignup from "../hooks/useSignup";
-import OAuth from "../components/OAuth/OAuth";
+"use client"
+
+import { useState } from "react"
+import { Link } from "react-router-dom"
+import useSignup from "../hooks/useSignup"
+import OAuth from "../components/OAuth/OAuth"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Loader2 } from "lucide-react"
 
 export default function SignUp() {
-  const [formData, setFormData] = useState({});
-  const {loading, signup} = useSignup();
+  const [formData, setFormData] = useState({})
+  const { loading, signup } = useSignup()
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.id]: e.target.value });
-  };
+    setFormData({ ...formData, [e.target.id]: e.target.value })
+  }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    signup(formData);
-  };
+    e.preventDefault()
+    signup(formData)
+  }
 
   return (
-      <div className="bg-gray-100 p-5 my-40 rounded-2xl border-gray-500 border-1 shadow-xl max-w-md mx-auto ">
-        <div className="mb-6 text-center">
-          <h1 className="text-2xl font-bold">Sign up</h1>
-          <p className="text-gray-500">Sign up to gain access</p>
-        </div>
-
-        <form onSubmit={handleSubmit} className="flex flex-col gap-2">
-          <input
-            type="text"
-            placeholder="Username"
-            id="username"
-            className="bg-white rounded-lg py-1 px-3 border-slate-300 border-1 outline-none text-gray-500"
-            onChange={handleChange}
-          />
-          <input
-            type="email"
-            placeholder="Email"
-            id="email"
-            className="bg-white rounded-lg py-1 px-3 border-slate-300 border-1 outline-none text-gray-500"
-            onChange={handleChange}
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            id="password"
-            className="bg-white rounded-lg py-1 px-3 border-slate-300 border-1 outline-none text-gray-500"
-            onChange={handleChange}
-          />
-          <input
-            type="password"
-            placeholder="Confirm Password"
-            id="confirmPassword"
-            className="bg-white rounded-lg py-1 px-3 border-slate-300 border-1 outline-none text-gray-500"
-            onChange={handleChange}
-          />
-          <button disabled={loading} className="bg-slate-700 rounded-lg py-1 text-white hover:bg-slate-600">
-            {loading? "LOADING..." :"Signup"}
-          </button>
-        </form>
-
-        <OAuth />
-
-        <div className="flex gap-2 text-gray-500 justify-center">
-          <p>Already have an account?</p>
-          <Link to={"/log-in"}>
-            <span className="text-blue-500 font-medium">Log In</span>
-          </Link>
-        </div>
-      </div>
-  );
+    <div className="container mx-auto px-4 py-8 flex items-center justify-center min-h-screen">
+      <Card className="w-full max-w-md">
+        <CardHeader className="space-y-1">
+          <CardTitle className="text-2xl font-bold text-center">Sign up</CardTitle>
+          <CardDescription className="text-center">Create an account to get started</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="username">Username</Label>
+              <Input type="text" id="username" placeholder="Enter your username" onChange={handleChange} required />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="email">Email</Label>
+              <Input type="email" id="email" placeholder="Enter your email" onChange={handleChange} required />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="password">Password</Label>
+              <Input type="password" id="password" placeholder="Create a password" onChange={handleChange} required />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="confirmPassword">Confirm Password</Label>
+              <Input
+                type="password"
+                id="confirmPassword"
+                placeholder="Confirm your password"
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <Button className="w-full" type="submit" disabled={loading}>
+              {loading ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Signing up...
+                </>
+              ) : (
+                "Sign up"
+              )}
+            </Button>
+          </form>
+          <div className="relative my-4">
+            <div className="absolute inset-0 flex items-center">
+              <span className="w-full border-t" />
+            </div>
+            <div className="relative flex justify-center text-xs uppercase">
+              <span className="bg-background px-2 text-muted-foreground">Or continue with</span>
+            </div>
+          </div>
+          <OAuth />
+        </CardContent>
+        <CardFooter className="flex flex-col items-center">
+          <p className="text-sm text-muted-foreground">
+            Already have an account?{" "}
+            <Link to="/log-in" className="text-primary font-medium hover:underline">
+              Log In
+            </Link>
+          </p>
+        </CardFooter>
+      </Card>
+    </div>
+  )
 }
+

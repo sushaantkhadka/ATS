@@ -21,6 +21,18 @@ const applicant = new mongoose.Schema(
     resumeType: {
       type : String,
       require: true,
+    },
+    coverletter: {
+      type: String,
+      require: true
+    },
+    email: {
+      type:String,
+      require: true
+    },
+    phone: {
+      type: String,
+      require: true
     }
   },
   { timestamps: true }

@@ -25,7 +25,7 @@ export const createListing = async (req, res, next) => {
 
 export const uploadResume = async (req, res, next) => {
   try {
-    const { name, exp, pdfUrl } = req.body;
+    const { name, exp, pdfUrl, email, coverletter, phone } = req.body;
     const { id: listingId } = req.params;
     const listing = await Listing.findById(listingId);
 
@@ -53,6 +53,9 @@ export const uploadResume = async (req, res, next) => {
       name,
       exp,
       pdfUrl,
+      coverletter,
+      email,
+      phone,
       rating: compare.data.rating,
       resumeType: compare.data.category
     });
@@ -67,7 +70,7 @@ export const uploadResume = async (req, res, next) => {
   }
 };
 
-export const getApplicant = async (req, res, next) => {
+export const getApplicants = async (req, res, next) => {
   try {
     const { id: jobId } = req.params;
 
@@ -79,6 +82,17 @@ export const getApplicant = async (req, res, next) => {
   }
 };
 
+export const getApplicant =async (req, res, next) => {
+  try{
+    const {id: applicantId} = req.params;
+    const applicant = await Applicant.findById(applicantId);
+    res.status(201).json(applicant)
+  }catch(error) {
+    next(error)
+  }
+}
+
+
 export const getJobs = async (req, res, next) => {
   try {
      const listing = await Listing.find().select("-applicant")
@@ -87,4 +101,43 @@ export const getJobs = async (req, res, next) => {
     next(error)
   }
 }
+
+export const getJob = async (req, res, next) => {
+  try {
+    const {id: jobId} = req.params;
+     const listing = await Listing.findById(jobId).select("-applicant")
+     res.status(201).json(listing)
+  } catch (error) {
+    next(error)
+  }
+}
+
+
+export const updateJobStatus = async (req, res, next) => {
+  try {
+    const { id: jobId } = req.params;
+    const { status } = req.body;
+
+    // Validate input
+    if (typeof status !== "boolean") {
+      return res.status(400).json({ success: false, message: "Invalid status value" });
+    }
+
+    // Find and update the job
+    const job = await Listing.findByIdAndUpdate(
+      jobId,
+      { $set: { status } },
+      { new: true } // Return updated document
+    );
+
+    if (!job) {
+      return res.status(404).json({ success: false, message: "Job not found" });
+    }
+
+    res.status(200).json({ success: true, message: "Status changed successfully" });
+
+  } catch (error) {
+    next(error);
+  }
+};
 
