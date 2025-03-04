@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function JobPage() {
+export default function jobPage() {
   return (
-    <div>JobPage</div>
+    <div>jobPage</div>
   )
 }
