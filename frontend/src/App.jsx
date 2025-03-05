@@ -16,33 +16,53 @@ import ApplyJob from "./pages/jobs/apply/ApplyJob";
 import Pricing from "./pages/Pricing";
 
 export default function App() {
-  const {authUser} = useAuthContext();
+  const { authUser } = useAuthContext();
   return (
     <BrowserRouter>
       <NavBar />
       <div className="h-[66px]" />
-      
+
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/log-in" element={authUser? <Navigate to={'/dashboard'}/> : <Login /> } />
-        <Route path="/sign-up" element={authUser? <Navigate to={'/dashboard'}/> : <SignUp />} />
-        <Route path="/profile" element={authUser? <Profile /> :  <Navigate to={'/'}/>} />
+        <Route
+          path="/log-in"
+          element={authUser ? <Navigate to={"/dashboard"} /> : <Login />}
+        />
+        <Route
+          path="/sign-up"
+          element={authUser ? <Navigate to={"/dashboard"} /> : <SignUp />}
+        />
+        <Route
+          path="/profile"
+          element={authUser ? <Profile /> : <Navigate to={"/"} />}
+        />
         <Route path="/pricing" element={<Pricing />} />
-
-
 
         <Route path="/jobs" element={<Jobs />} />
         <Route path="/jobs/details/:id" element={<JobPage />} />
         <Route path="/jobs/apply/:id" element={<ApplyJob />} />
 
-
-        <Route path="/dashboard" element={authUser? <Dashboard /> : <Navigate to={'/log-in'} />} />
-        <Route path="/dashboard/create" element={authUser? <CreateJob />:<Navigate to={'/log-in'} /> } />
-        <Route path="/dashboard/job/:id" element={authUser? <JobDetails /> : <Navigate to={'/log-in'} />} />
-        <Route path="/dashboard/job/applicant/:id" element={authUser? <ApplicantDetails /> : <Navigate to={'/log-in'} />} />
-
+        <Route
+          path="/dashboard"
+          element={authUser ? <Dashboard /> : <Navigate to={"/log-in"} />}
+        />
+        <Route
+          path="/dashboard/create"
+          element={authUser ? <CreateJob /> : <Navigate to={"/log-in"} />}
+        />
+        <Route
+          path="/dashboard/job/:id"
+          element={authUser ? <JobDetails /> : <Navigate to={"/log-in"} />}
+        />
+        <Route
+          path="/dashboard/job/applicant/:id"
+          element={
+            authUser ? <ApplicantDetails /> : <Navigate to={"/log-in"} />
+          }
+        />
       </Routes>
-      <Toaster />
+      
+      <Toaster position="top-right" reverseOrder={false} />
     </BrowserRouter>
   );
 }
