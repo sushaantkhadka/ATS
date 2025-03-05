@@ -33,8 +33,9 @@ const useSignup = () => {
         }),
       });
       const data = await res.json();
-      if (data.error) {
-        throw new Error(data.error);
+      if (data.success == false) {
+        toast.error(data.message)
+        throw new Error(data);
       }
       navigate('/log-in')
       toast.success("Account Created Successfully")
