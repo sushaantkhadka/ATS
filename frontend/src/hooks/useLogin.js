@@ -25,7 +25,7 @@ const useLogin = () => {
       console.log(data.message);
 
       if (data.success == false) {
-        toast.error(data.message);
+        toast.error(data.message);        
         setLoading(false);
         throw new Error(data);
       }
@@ -37,7 +37,8 @@ const useLogin = () => {
 
 
     } catch (error) {
-      toast.error(error.message);
+      console.log(error);
+      
     }finally{
       setLoading(false);
     }

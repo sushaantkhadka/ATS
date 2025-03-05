@@ -41,7 +41,7 @@ const useSignup = () => {
       toast.success("Account Created Successfully")
 
     } catch (error) {
-      toast.error(error.message);
+      console.log(error);
     } finally {
       setLoading(false);
     }
